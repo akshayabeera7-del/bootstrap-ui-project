@@ -1,110 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bootstrap Single File Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Contact Form</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 
-    <style>
-        /* Custom CSS */
-        body {
-            background: linear-gradient(135deg, #4e73df, #1cc88a);
-            min-height: 100vh;
-        }
+  <style>
+    body {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
 
-        .custom-card {
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
+    .custom-card {
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: none;
+    }
 
-        .navbar {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+    .navbar {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-        .footer {
-            background-color: #212529;
-            color: white;
-            padding: 15px 0;
-            margin-top: 40px;
-        }
-    </style>
+    .footer {
+      background-color: #212529;
+      color: white;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    .main-wrapper {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 15px;
+    }
+
+    .btn-custom {
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .success-box {
+      display: none;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">My Bootstrap Page</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand fw-bold" href="#">My Bootstrap Contact Form</a>
     </div>
-</nav>
+  </nav>
 
-<!-- Main Content -->
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card custom-card p-4">
-                <h3 class="text-center mb-4">Contact Form</h3>
-                
-               <form action="https://formsubmit.co/sivalakshmia7@gmail.com" method="POST">
+  <!-- Main Section -->
+  <div class="main-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+          <div class="card custom-card p-4">
+            <h2 class="text-center mb-4 fw-bold">Contact Form</h2>
 
-    <div class="mb-3">
-        <label class="form-label">Full Name</label>
-        <input type="text"
-               name="name"
-               class="form-control"
-               placeholder="Enter your name"
-               required>
-    </div>
+            <!-- Success Message -->
+            <div id="successMessage" class="alert alert-success success-box" role="alert">
+              ✅ Your details have been submitted successfully!
+            </div>
 
-    <div class="mb-3">
-        <label class="form-label">Email Address</label>
-        <input type="email"
-               name="email"
-               class="form-control"
-               placeholder="Enter your email"
-               required>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Message</label>
-        <textarea name="message"
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input
+                  type="text"
                   class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
                   rows="4"
                   placeholder="Enter your message"
-                  required></textarea>
-    </div>
+                  required
+                ></textarea>
+              </div>
 
-    <input type="hidden" name="_captcha" value="false">
-
-    <div class="d-grid">
-        <button type="submit" class="btn btn-primary btn-lg">
-            Submit
-        </button>
-    </div>
-
-</form> 
-
-            </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-custom" id="submitBtn">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Footer -->
-<div class="footer text-center">
+  <!-- Footer -->
+  <div class="footer text-center">
     <div class="container">
-        <p class="mb-0">© 2026 Bootstrap Example | Designed with Bootstrap 5</p>
+      <p class="mb-0">© 2026 Bootstrap Contact Form | Designed by Beera Akshaya</p>
     </div>
-</div>
+  </div>
 
-<!-- Bootstrap JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Firebase + Form Script -->
+  <script type="module">
+    // Firebase imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtOexcihiOJx_D8E1ecY-_UdhgCWtqt8s",
+      authDomain: "bootstrapcontactform-e1dfe.firebaseapp.com",
+      databaseURL: "https://bootstrapcontactform-e1dfe-default-rtdb.firebaseio.com",
+      projectId: "bootstrapcontactform-e1dfe",
+      storageBucket: "bootstrapcontactform-e1dfe.firebasestorage.app",
+      messagingSenderId: "821142264794",
+      appId: "1:821142264794:web:5e53fa94497e90a542fee3",
+      measurementId: "G-YGWCKLK88W"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Form submit
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+    const submitBtn = document.getElementById("submitBtn");
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      push(ref(database, "contactFormSubmissions"), {
+        name: name,
+        email: email,
+        message: message,
+        submittedAt: new Date().toLocaleString()
+      })
+      .then(() => {
+        successMessage.style.display = "block";
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit";
+
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 3000);
+      })
+      .catch((error) => {
+        alert("Error: " + error.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit";
+      });
+    });
+  </script>
 
 </body>
 </html>
