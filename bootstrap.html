@@ -5,138 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bootstrap Contact Form</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
       min-height: 100vh;
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Patrick Hand', cursive;
+      background: linear-gradient(135deg, #3b82f6, #06d6a0);
+      padding: 20px;
     }
 
-    .custom-card {
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      border: none;
-    }
-
-    .navbar {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .footer {
-      background-color: #212529;
+    .top-heading {
       color: white;
-      padding: 15px 0;
-      margin-top: 40px;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
-    .main-wrapper {
-      min-height: calc(100vh - 120px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 15px;
+    .form-card {
+      max-width: 650px;
+      margin: 30px auto;
+      background: #f7f7f7;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
 
-    .btn-custom {
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 10px;
-      padding: 10px;
+    .form-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+      color: #1f2937;
+      font-weight: bold;
+    }
+
+    .form-label {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    .form-control {
+      font-size: 1.25rem;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      margin-bottom: 20px;
+    }
+
+    textarea.form-control {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 1.8rem;
+      transition: 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: #0b5ed7;
+    }
+
+    .success-box,
+    .error-box {
+      display: none;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 1.35rem;
     }
 
     .success-box {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .error-box {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .loading-text {
       display: none;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 1.2rem;
+      color: #374151;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">My Bootstrap Contact Form</a>
+  <div class="top-heading">My Bootstrap Contact Form</div>
+
+  <div class="form-card">
+    <h1 class="form-title">Contact Form</h1>
+
+    <div id="successMsg" class="success-box">
+      ✅ Your details have been submitted successfully!
     </div>
-  </nav>
 
-  <!-- Main Section -->
-  <div class="main-wrapper">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-6">
-          <div class="card custom-card p-4">
-            <h2 class="text-center mb-4 fw-bold">Contact Form</h2>
-
-            <!-- Success Message -->
-            <div id="successMessage" class="alert alert-success success-box" role="alert">
-              ✅ Your details have been submitted successfully!
-            </div>
-
-            <form id="contactForm">
-              <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="4"
-                  placeholder="Enter your message"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-custom" id="submitBtn">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div id="errorMsg" class="error-box">
+      ❌ Something went wrong. Please try again.
     </div>
+
+    <form id="contactForm">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Enter your name" required />
+
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+
+      <label for="message" class="form-label">Message</label>
+      <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Submit</button>
+      <div class="loading-text" id="loadingText">Submitting... Please wait.</div>
+    </form>
   </div>
 
-  <!-- Footer -->
-  <div class="footer text-center">
-    <div class="container">
-      <p class="mb-0">© 2026 Bootstrap Contact Form | Designed by Beera Akshaya</p>
-    </div>
-  </div>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-  <!-- Firebase + Form Script -->
+  <!-- Firebase -->
   <script type="module">
-    // Firebase imports
+    // =========================
+    // FIREBASE IMPORTS
+    // =========================
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    import {
+      getDatabase,
+      ref,
+      push
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-    // Your Firebase config
+    // =========================
+    // FIREBASE CONFIG
+    // =========================
     const firebaseConfig = {
       apiKey: "AIzaSyDtOexcihiOJx_D8E1ecY-_UdhgCWtqt8s",
       authDomain: "bootstrapcontactform-e1dfe.firebaseapp.com",
@@ -148,53 +172,84 @@
       measurementId: "G-YGWCKLK88W"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
+    // =========================
+    // EMAILJS CONFIG
+    // =========================
+    const EMAILJS_PUBLIC_KEY = "JmZKN-BgLIQV5S5d_";
+    const EMAILJS_SERVICE_ID = "service_mjfeym9";
+    const EMAILJS_TEMPLATE_ID = "template_yjfejmq";
 
-    // Form submit
+    // =========================
+    // INITIALIZE
+    // =========================
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY
+    });
+
+    // =========================
+    // FORM ELEMENTS
+    // =========================
     const contactForm = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
+    const successMsg = document.getElementById("successMsg");
+    const errorMsg = document.getElementById("errorMsg");
+    const loadingText = document.getElementById("loadingText");
     const submitBtn = document.getElementById("submitBtn");
 
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+    // =========================
+    // FORM SUBMIT
+    // =========================
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault(); // page refresh stop
+
+      successMsg.style.display = "none";
+      errorMsg.style.display = "none";
+      loadingText.style.display = "block";
+      submitBtn.disabled = true;
 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      if (!name || !email || !message) {
-        alert("Please fill all fields.");
-        return;
-      }
+      try {
+        // 1) SAVE TO FIREBASE
+        await push(ref(db, "contactFormSubmissions"), {
+          name: name,
+          email: email,
+          message: message,
+          submittedAt: new Date().toLocaleString()
+        });
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
+        // 2) SEND EMAIL USING EMAILJS
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            from_name: name,
+            from_email: email,
+            message: message
+          }
+        );
 
-      push(ref(database, "contactFormSubmissions"), {
-        name: name,
-        email: email,
-        message: message,
-        submittedAt: new Date().toLocaleString()
-      })
-      .then(() => {
-        successMessage.style.display = "block";
+        // SUCCESS
+        successMsg.style.display = "block";
         contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit";
 
+        // optional auto-hide success
         setTimeout(() => {
-          successMessage.style.display = "none";
-        }, 3000);
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
+          successMsg.style.display = "none";
+        }, 5000);
+
+      } catch (error) {
+        console.error("Error:", error);
+        errorMsg.style.display = "block";
+      } finally {
+        loadingText.style.display = "none";
         submitBtn.disabled = false;
-        submitBtn.textContent = "Submit";
-      });
+      }
     });
   </script>
-
 </body>
 </html>
