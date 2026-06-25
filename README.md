@@ -60,3 +60,4 @@ Interested in Web Development, Front-End Development, Artificial Intelligence, a
 
 ## Project Category
 **Front-End Web Development / Bootstrap UI Project**
+Project updated for GitHub Pages deployment.
