@@ -53,26 +53,6 @@ bootstrap/
 
 ---
 
-## Screenshots
-Add project screenshots here to visually present the design and interface.
-
-### Example:
-- Home Page Screenshot
-- Bootstrap Components Section Screenshot
-- Responsive Mobile View Screenshot
-
----
-
-## Live Demo
-If deployed, add your project demo link here.
-
-**Example:**
-```md
-[Live Demo](https://your-demo-link.com)
-```
-
----
-
 ## Applications
 - Responsive website design practice
 - Front-end UI development learning
